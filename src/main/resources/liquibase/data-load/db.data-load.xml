@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="data-load-user" author="Niall Mulready" logicalFilePath="data_load/data-load-user.xml"
+               runOnChange="true">
+        <preConditions>
+            <tableExists tableName="users"/>
+        </preConditions>
+        <loadUpdateData tableName="users" file="liquibase/data-load/ref-data-users.csv" relativeToChangelogFile="false"
+                        primaryKey="id">
+            <column name="id" type="STRING"/>
+            <column name="username" type="STRING"/>
+            <column name="password" type="STRING"/>
+        </loadUpdateData>
+    </changeSet>
+    <changeSet id="data-load-caster-selection" author="Niall Mulready" logicalFilePath="data_load/data-load-caster-selection.xml"
+               runOnChange="true">
+        <preConditions>
+            <tableExists tableName="caster_selection"/>
+        </preConditions>
+        <loadUpdateData tableName="caster_selection" file="liquibase/data-load/ref-data-caster-selection.csv" relativeToChangelogFile="false"
+                        primaryKey="id">
+            <column name="id" type="STRING"/>
+            <column name="user" type="STRING"/>
+        </loadUpdateData>
+    </changeSet>
+    <changeSet id="data-load-caster-list" author="Niall Mulready" logicalFilePath="data_load/data-load-caster-list.xml"
+               runOnChange="true">
+        <preConditions>
+            <tableExists tableName="caster_list"/>
+        </preConditions>
+
+        <loadUpdateData tableName="caster_list" file="liquibase/data-load/ref-data-caster_list.csv" relativeToChangelogFile="false"
+                        primaryKey="id">
+            <column name="id" type="STRING"/>
+            <column name="user" type="STRING"/>
+            <column name="listid" type="STRING"/>
+        </loadUpdateData>
+    </changeSet>
+    <changeSet id="data-load-casters" author="Niall Mulready" logicalFilePath="data_load/data-load-caster.xml"
+               runOnChange="true">
+        <preConditions>
+            <tableExists tableName="caster"/>
+        </preConditions>
+        <loadUpdateData tableName="caster" file="liquibase/data-load/ref-data-caster.csv" relativeToChangelogFile="false"
+                        primaryKey="id">
+            <column name="id" type="STRING"/>
+            <column name="user" type="STRING"/>
+            <column name="caster_list" type="STRING"/>
+        </loadUpdateData>
+    </changeSet>
+    <changeSet id="data-load-powers" author="Niall Mulready" logicalFilePath="data_load/data-load-power.xml"
+               runOnChange="true">
+        <preConditions>
+            <tableExists tableName="power"/>
+        </preConditions>
+        <loadUpdateData tableName="power" file="liquibase/data-load/ref-data-power.csv" relativeToChangelogFile="false"
+                        primaryKey="id">
+            <column name="id" type="STRING"/>
+            <column name="user" type="STRING"/>
+            <column name="caster_id" type="STRING"/>
+        </loadUpdateData>
+    </changeSet>
+</databaseChangeLog>

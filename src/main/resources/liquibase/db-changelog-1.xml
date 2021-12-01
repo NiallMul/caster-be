@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet id="create_user_table" author="niall_m">
+        <createTable tableName="users">
+            <column name="id" type="VARCHAR(500)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username" type="VARCHAR(500)"/>
+            <column name="password" type="VARCHAR(200)"/>
+        </createTable>
+        <createTable tableName="caster_selection">
+            <column name="id" type="VARCHAR(500)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user" type="VARCHAR(500)">
+            </column>
+        </createTable>
+        <createTable tableName="caster_list">
+            <column name="id" type="VARCHAR(500)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(500)"/>
+            <column name="caster_selection" type="VARCHAR(500)"/>
+        </createTable>
+        <createTable tableName="caster">
+            <column name="id" type="VARCHAR(500)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(500)"/>
+            <column name="caster_list" type="VARCHAR(500)"/>
+        </createTable>
+        <createTable tableName="power">
+            <column name="id" type="VARCHAR(500)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(500)"/>
+            <column name="value" type="NUMBER"/>
+            <column name="caster_id" type="VARCHAR(500)"/>
+        </createTable>
+        <addForeignKeyConstraint constraintName="power_caster_fk"
+                                 baseTableName="power"
+                                 baseColumnNames="caster_id"
+                                 referencedTableName="caster"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint constraintName="caster_list_fk"
+                                 baseTableName="caster"
+                                 baseColumnNames="caster_list"
+                                 referencedTableName="caster_list"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint constraintName="list_selection_fk"
+                                 baseTableName="caster_list"
+                                 baseColumnNames="caster_selection"
+                                 referencedTableName="caster_selection"
+                                 referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint constraintName="selection_user_fk"
+                                 baseTableName="caster_selection"
+                                 baseColumnNames="user"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>

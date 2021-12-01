@@ -1,0 +1,43 @@
+{
+  "casterList": [
+    {
+      "name": "army1",
+      "casters": [
+        {
+          "name": "caster",
+          "powers": [
+            {
+              "name": "power1",
+              "value": 4
+            },
+            {
+              "name": "power2",
+              "value": 7
+            },
+            {
+              "name": "power3",
+              "value": 9
+            }
+          ]
+        },
+        {
+          "name": "caster1",
+          "powers": [
+            {
+              "name": "power4",
+              "value": 5
+            },
+            {
+              "name": "power5",
+              "value": 2
+            },
+            {
+              "name": "power6",
+              "value": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
