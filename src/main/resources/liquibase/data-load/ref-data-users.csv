@@ -1,2 +1,2 @@
-id,username,password
-c9hgr12a-9605-4848-886c-095ff3f7505b,admin,password
+id,username,password,account_locked
+c9hgr12a-9605-4848-886c-095ff3f7505b,admin,password,false

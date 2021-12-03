@@ -12,6 +12,7 @@
             <column name="id" type="STRING"/>
             <column name="username" type="STRING"/>
             <column name="password" type="STRING"/>
+            <column name="account_locked" type="BOOLEAN"/>
         </loadUpdateData>
     </changeSet>
     <changeSet id="data-load-caster-selection" author="Niall Mulready" logicalFilePath="data_load/data-load-caster-selection.xml"
