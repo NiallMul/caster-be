@@ -1,0 +1,4 @@
+FROM openjdk:8
+MAINTAINER niallm
+COPY target/caster-be-0.0.1-SNAPSHOT.jar dist/caster-be-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java", "-jar", "dist/caster-be-0.0.1-SNAPSHOT.jar"]
