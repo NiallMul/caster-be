@@ -21,7 +21,6 @@ public class LoginController {
 
     @PostMapping()
     @ApiOperation(value = "Login user", notes = "logs a user into the system")
-    @CrossOrigin
     public ResponseEntity<User> login(@RequestBody User user){
         return ResponseEntity.ok(service.login(user));
     }
