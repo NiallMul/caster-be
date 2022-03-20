@@ -10,5 +10,5 @@ public class User {
 
     private String password;
 
-    private Boolean accountLocked;
+    private boolean accountLocked;
 }
