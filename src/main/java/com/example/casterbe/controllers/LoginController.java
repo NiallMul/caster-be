@@ -19,7 +19,7 @@ public class LoginController {
         this.service = service;
     }
 
-    @PostMapping()
+    @PostMapping(path = "login")
     @ApiOperation(value = "Login user", notes = "logs a user into the system")
     public ResponseEntity<User> login(@RequestBody User user){
         return ResponseEntity.ok(service.login(user));
