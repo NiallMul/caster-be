@@ -8,5 +8,6 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class CasterSelection {
+    private String id;
     private List<CasterList> casterList;
 }

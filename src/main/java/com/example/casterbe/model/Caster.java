@@ -8,6 +8,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class Caster {
+    private String id;
     private String name;
     private List<Power> powers;
 

@@ -11,30 +11,30 @@ services:
       MYSQL_ROOT_PASSWORD: password
     ports:
       - 3306:3306
-  caster-be:
-    ports:
-      - 8081:8080
-    build:
-      context: ../
-      dockerfile: ./docker/Dockerfile.dev
-    depends_on:
-      - caster-db
-  nginx:
-    container_name: caster-be-nginx
-    image: nginx:1.16.0-alpine
-    # restart: no
-    build:
-      context: ..
-      dockerfile: ./docker/nginx/Dockerfile
-    ports:
-      - 8080:8080
-    volumes:
-      - './nginx/nginx.conf:/etc/nginx/conf.d/default.conf'
-
-    logging:
-      driver: json-file
-      options:
-        max-size: "10m"
-        max-file: "1"
+#  caster-be:
+#    ports:
+#      - 8081:8080
+#    build:
+#      context: ../
+#      dockerfile: ./docker/Dockerfile.dev
+#    depends_on:
+#      - caster-db
+#  nginx:
+#    container_name: caster-be-nginx
+#    image: nginx:1.16.0-alpine
+#    # restart: no
+#    build:
+#      context: ..
+#      dockerfile: ./docker/nginx/Dockerfile
+#    ports:
+#      - 8080:8080
+#    volumes:
+#      - './nginx/nginx.conf:/etc/nginx/conf.d/default.conf'
+#
+#    logging:
+#      driver: json-file
+#      options:
+#        max-size: "10m"
+#        max-file: "1"
 
 
